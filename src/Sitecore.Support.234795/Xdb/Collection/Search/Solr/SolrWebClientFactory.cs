@@ -2,6 +2,7 @@
 using Sitecore.Xdb.Collection.Search.Solr;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
@@ -111,11 +112,17 @@ namespace Sitecore.Support
 
     private static IEnumerable<string> GetAllowedThumbprints(IConfiguration options)
     {
-      var thumbssection = options.GetSection("AсceptCertificates");
+      const string thumbprintsCyrillicSectionName = "AсceptCertificates";
+      const string thumbprintsLatinSectionName = "AcceptCertificates";
+      return GetThumbprints(thumbprintsCyrillicSectionName).Concat(GetThumbprints(thumbprintsLatinSectionName));
 
-      foreach (var optionChild in thumbssection.GetChildren())
+      IEnumerable<string> GetThumbprints(string sectionName)
       {
-        yield return optionChild.Value;
+        IConfigurationSection thumbssection = options.GetSection(sectionName);
+        foreach (IConfigurationSection optionChild in thumbssection?.GetChildren() ?? Enumerable.Empty<IConfigurationSection>())
+        {
+          yield return optionChild.Value;
+        }
       }
     }
   }
