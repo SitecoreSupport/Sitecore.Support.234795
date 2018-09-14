@@ -17,7 +17,7 @@ namespace Sitecore.Support.Xdb.Collection.Search.Solr
 
     private static readonly BindingFlags _bFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
     private static readonly MethodInfo CertificateValidator_Initialize = 
-      Type.GetType("Sitecore.Xdb.Collection.Search.Solr.CertificateValidator").GetMethod("Initialize", _bFlags);
+      Type.GetType("Sitecore.Xdb.Collection.Search.Solr.CertificateValidator, Sitecore.Xdb.Collection.Search.Solr").GetMethod("Initialize", _bFlags);
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
         Justification = "We do not dispose the clients during the application lifecycle")]
