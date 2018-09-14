@@ -16,7 +16,7 @@
       <CollectionSearch>
         <Services>
             <ISolrWebClientFactory>
-                <Type>Sitecore.Xdb.Collection.Search.Solr.SolrWebClientFactory, Sitecore.Xdb.Collection.Search.Solr</Type>
+                <Type>Sitecore.Support.Xdb.Collection.Search.Solr.SolrWebClientFactory, Sitecore.Support.234795</Type>
                 <As>Sitecore.Xdb.Collection.Search.Solr.IWebClientFactory, Sitecore.Xdb.Collection.Search.Solr</As>
                 <LifeTime>Singleton</LifeTime>
                 <Options>
