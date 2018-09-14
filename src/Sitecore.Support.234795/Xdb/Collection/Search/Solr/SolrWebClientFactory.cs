@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Threading;
 
-namespace Sitecore.Support
+namespace Sitecore.Support.Xdb.Collection.Search.Solr
 {
   public class SolrWebClientFactory : IWebClientFactory
   {
