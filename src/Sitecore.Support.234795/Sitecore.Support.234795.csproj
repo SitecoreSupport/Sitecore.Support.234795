@@ -76,7 +76,8 @@
     <Compile Include="Xdb\Collection\Search\Solr\SolrWebClientFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\zzz\Sitecore.Support.234795.config" />
+    <Content Include="App_data\Config\sitecore\CollectionSearch\sc.Xdb.Collection.WebClient.SOLR.xml" />
+    <Content Include="App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch\sc.Xdb.Collection.WebClient.SOLR.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
