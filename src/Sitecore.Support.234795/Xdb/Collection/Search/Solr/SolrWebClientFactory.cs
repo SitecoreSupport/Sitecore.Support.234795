@@ -114,15 +114,15 @@ namespace Sitecore.Support.Xdb.Collection.Search.Solr
     {
       const string thumbprintsCyrillicSectionName = "AсceptCertificates";
       const string thumbprintsLatinSectionName = "AcceptCertificates";
-      return GetThumbprints(thumbprintsCyrillicSectionName).Concat(GetThumbprints(thumbprintsLatinSectionName));
+      return GetThumbprints(thumbprintsCyrillicSectionName, options).Concat(GetThumbprints(thumbprintsLatinSectionName, options));
+    }
 
-      IEnumerable<string> GetThumbprints(string sectionName)
+    private static IEnumerable<string> GetThumbprints(string sectionName, IConfiguration options)
+    {
+      IConfigurationSection thumbssection = options.GetSection(sectionName);
+      foreach (IConfigurationSection optionChild in thumbssection?.GetChildren() ?? Enumerable.Empty<IConfigurationSection>())
       {
-        IConfigurationSection thumbssection = options.GetSection(sectionName);
-        foreach (IConfigurationSection optionChild in thumbssection?.GetChildren() ?? Enumerable.Empty<IConfigurationSection>())
-        {
-          yield return optionChild.Value;
-        }
+        yield return optionChild.Value;
       }
     }
   }
